@@ -1,0 +1,13 @@
+		View decorView = getWindow().getDecorView();
+        int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(option);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+		
+		或者在styles
+		<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">改成NoActionBar,也是一种不完美的显示
+		这里先调用getWindow().getDecorView()方法获取到了当前界面的DecorView，
+		然后调用它的setSystemUiVisibility()方法来设置系统UI元素的可见性。
+		其中，SYSTEM_UI_FLAG_FULLSCREEN表示全屏的意思，也就是会将状态栏隐藏。
+		另外，根据Android的设计建议，ActionBar是不应该独立于状态栏而单独显示的，
+		因此状态栏如果隐藏了，我们同时也需要调用ActionBar的hide()方法将ActionBar也进行隐藏。
