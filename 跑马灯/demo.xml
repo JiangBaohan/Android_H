@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+<!--
+ellipsize  设置跑马灯
+focusable 获取焦点
+focusableInTouchMode 获取焦点（在TouchMode状态下）
+marqueeRepeatLimit 次数 marquee_forever无限次
+singleLine 是否在一行
+-->
+    <TextView
+        android:text="要输入的内容"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:id="@+id/textView"/>
+</LinearLayout>
