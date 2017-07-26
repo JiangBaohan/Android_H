@@ -1,0 +1,8 @@
+当imageview加载本地图片格式被修改过时，R文件会报错
+在build.gradle中添加下面的就可以了
+aaptOptions {
+        cruncherEnabled = false
+                 useNewCruncher = false
+
+            }
+			
