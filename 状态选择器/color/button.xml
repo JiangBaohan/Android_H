@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--state_pressed按下-->
+    <item android:color="@color/colorPrimary"
+          android:state_pressed="true"/>
+    <!-- state_focused获得焦点-->
+    <item android:color="@color/colorAccent"
+          android:state_focused="true"/>
+    <!--默认的颜色-->
+    <item android:color="#000"/>
+</selector>
