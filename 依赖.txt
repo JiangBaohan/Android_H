@@ -1,9 +1,17 @@
- compile 'com.google.code.gson:gson:2.8.1'
+gson的依赖
+            compile 'com.google.code.gson:gson:2.8.1'
+ 
+imageloader的依赖
+                compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+ 
+glide的依赖
+            compile 'com.github.bumptech.glide:glide:3.7.0'
+            
+banner的依赖
+            compile 'com.youth.banner:banner:1.4.9'
+            
+tabLayout的依赖
+                compile 'com.android.support:design:25.0.1'
 
- compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-
-    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
-
- compile 'com.youth.banner:banner:1.4.9'
-
-compile 'com.android.support:design:25.0.1'
+HttpClient的依赖
+                 android { useLibrary 'org.apache.http.legacy'
