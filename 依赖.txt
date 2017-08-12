@@ -15,3 +15,7 @@ tabLayout的依赖
 
 HttpClient的依赖
                  android { useLibrary 'org.apache.http.legacy'
+Xutils的依赖
+            compile 'org.xutils:xutils:3.5.0'
+butterknife的依赖           
+            compile 'com.jakewharton:butterknife:7.0.1'
