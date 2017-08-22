@@ -23,3 +23,5 @@ butterknife的依赖           
           compile 'com.journeyapps:zxing-android-embedded:3.5.0'
 PhotoView依赖         
          compile 'com.github.chrisbanes:PhotoView:1.2.6'
+recyclerview依赖
+          compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
