@@ -26,3 +26,6 @@ PhotoView依赖添加jar包       
 recyclerview依赖添加 jar包  v7包
  Logger依赖
              compile 'com.orhanobut:logger:1.15'
+okhttp依赖
+          compile 'com.squareup.okhttp3:okhttp:3.4.2'
+
