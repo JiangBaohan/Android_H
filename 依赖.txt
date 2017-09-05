@@ -24,8 +24,10 @@ butterknife的依赖           
 PhotoView依赖添加jar包        
          compile 'com.github.chrisbanes:PhotoView:1.2.6'
 recyclerview依赖添加 jar包  v7包
- Logger依赖
+recyclerview添加头部布局依赖
+            compile 'com.squareup.picasso:picasso:2.3.2'
+Logger依赖
              compile 'com.orhanobut:logger:1.15'
 okhttp依赖
           compile 'com.squareup.okhttp3:okhttp:3.4.2'
-
+          
