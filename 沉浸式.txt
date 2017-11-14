@@ -1,13 +1,55 @@
-		View decorView = getWindow().getDecorView();
-        int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(option);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+只是隐藏了状态栏,但是下面的导航键没取消掉(传统沉浸式不够完美)
+
+View decorView = getWindow().getDecorView();
+int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
+decorView.setSystemUiVisibility(option);
+ActionBar actionBar = getSupportActionBar();
+actionBar.hide();
 		
-		������styles
-		<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">�ĳ�NoActionBar,Ҳ��һ�ֲ���������ʾ
-		�����ȵ���getWindow().getDecorView()������ȡ���˵�ǰ�����DecorView��
-		Ȼ���������setSystemUiVisibility()����������ϵͳUIԪ�صĿɼ��ԡ�
-		���У�SYSTEM_UI_FLAG_FULLSCREEN��ʾȫ������˼��Ҳ���ǻὫ״̬�����ء�
-		���⣬����Android����ƽ��飬ActionBar�ǲ�Ӧ�ö�����״̬����������ʾ�ģ�
-		���״̬����������ˣ�����ͬʱҲ��Ҫ����ActionBar��hide()������ActionBarҲ�������ء�
+或者在styles
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">改成NoActionBar,只是把activitybar去掉了,状态栏没改变
+这里先调用getWindow().getDecorView()方法获取到了当前界面的DecorView，
+然后调用它的setSystemUiVisibility()方法来设置系统UI元素的可见性。
+其中，SYSTEM_UI_FLAG_FULLSCREEN表示全屏的意思，也就是会将状态栏隐藏。
+另外，根据Android的设计建议，ActionBar是不应该独立于状态栏而单独显示的，
+因此状态栏如果隐藏了，我们同时也需要调用ActionBar的hide()方法将ActionBar也进行隐藏。
+		
+状态栏透明状态:
+
+setContentView(R.layout.activity_main);
+if (Build.VERSION.SDK_INT >= 21) {
+    View decorView = getWindow().getDecorView();
+    int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+    decorView.setSystemUiVisibility(option);
+    getWindow().setStatusBarColor(Color.TRANSPARENT);
+}
+ActionBar actionBar = getSupportActionBar();
+actionBar.hide();
+
+隐藏导航栏:
+
+setContentView(R.layout.activity_main);
+View decorView = getWindow().getDecorView();
+int option = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        | View.SYSTEM_UI_FLAG_FULLSCREEN;
+decorView.setSystemUiVisibility(option);
+ActionBar actionBar = getSupportActionBar();
+actionBar.hide();
+
+真正的沉浸式:
+
+  @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus && Build.VERSION.SDK_INT >= 19) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
